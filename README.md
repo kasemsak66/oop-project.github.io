@@ -1,11 +1,10 @@
 README.md
-- application title
+- application title :
 - author: 
   * id: 66114540126
   * name: เกษมศักดิ์ หนูเผือก
 - technology: [pygame/streamlit]
 - application description: รายละเอียดโครงงาน
 
-* presentation: [slide/canva/etc..] link [public/ubu]
-* video: link [public/ubu]
- xoxoxo
+* presentation: [slide/canva/etc..] link [public/ubu] :
+* video: link [public/ubu] :
