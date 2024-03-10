@@ -23,7 +23,7 @@ class WorkScheduleApp:
             "กรกฎาคม": 7, "สิงหาคม": 8, "กันยายน": 9, "ตุลาคม": 10, "พฤศจิกายน": 11, "ธันวาคม": 12
         }
         self.df['Month'] = self.df['Month'].map(months_map)
-        self.df = self.df.sort_values(by=['Month', 'Day'])  # Sort by month and then by day
+        self.df = self.df.sort_values(by=['Month', 'Day'])  
         self.df['Month'] = self.df['Month'].map({v: k for k, v in months_map.items()})
         self.df.to_csv(self.data_file, index=False)
 
@@ -48,7 +48,7 @@ def main():
         else:
             app.add_work(name, description, day, month)
             st.success("เพิ่มงานสำเร็จ!")
-    
+
 
     st.subheader("ตาราง")
     app.sort_by_month_and_day()
