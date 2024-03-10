@@ -17,14 +17,14 @@ class WorkScheduleApp:
             self.df.drop(index, inplace=True)
             self.df.to_csv(self.data_file, index=False)
 
-    def sort_by_month(self):
+    def sort_by_month_and_day(self):
         months_map = {
             "มกราคม": 1, "กุมภาพันธ์": 2, "มีนาคม": 3, "เมษายน": 4, "พฤษภาคม": 5, "มิถุนายน": 6,
             "กรกฎาคม": 7, "สิงหาคม": 8, "กันยายน": 9, "ตุลาคม": 10, "พฤศจิกายน": 11, "ธันวาคม": 12
         }
         self.df['Month'] = self.df['Month'].map(months_map)
-        self.df = self.df.sort_values(by='Month')
-        self.df['Month'] = self.df['Month'].map({v: k for k, v in months_map.items()}) 
+        self.df = self.df.sort_values(by=['Month', 'Day'])  # Sort by month and then by day
+        self.df['Month'] = self.df['Month'].map({v: k for k, v in months_map.items()})
         self.df.to_csv(self.data_file, index=False)
 
     def show_database(self):
@@ -51,7 +51,7 @@ def main():
     
 
     st.subheader("ตาราง")
-    app.sort_by_month()
+    app.sort_by_month_and_day()
     app.show_database()
 
     if not app.df.empty:
